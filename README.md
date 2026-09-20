@@ -2,9 +2,11 @@
 
 ## QEMU setup
 
+Here are the instructions to setup multiple Debian VMs that are connected in a local network.
+
 1. Download Debian ISO from https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
 2. Create base disk: `qemu-img create -f qcow2 base.qcow2 10G`.
-3. Run the VM and install Debian, during software selection check ONLY `SSH server` and `standard system utilities`
+3. Run the VM and install Debian, during software selection check ONLY `SSH server` and `standard system utilities`:
 
 ```bash
    qemu-system-x86_64 \
@@ -36,3 +38,4 @@ qemu-img create -f qcow2 -b base.qcow2 -F qcow2 vm2.qcow2
 7. Create virtual L2 switch `sudo ip link add name br0 type bridge`.
 8. Write `allow br0` to file `/etc/qemu/bridge.conf`.
 9. Run `./qemu-start.sh`, multiple VMs should open.
+10. Setup VM static IP addresses.

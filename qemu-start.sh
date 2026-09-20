@@ -15,4 +15,4 @@ sleep 2s
 
 sudo ip link set tap0 master br0
 sudo ip link set tap1 master br0
-
+sudo ip link set dev br0 up
